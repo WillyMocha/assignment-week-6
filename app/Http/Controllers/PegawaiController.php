@@ -7,7 +7,8 @@ use Illuminate\Support\Facades\DB;
 
 class PegawaiController extends Controller
 {
-
+    const URL_PEGAWAI = '/pegawai';
+    
     public function index()
     {
         // mengambil data dari table pegawai
@@ -31,13 +32,13 @@ class PegawaiController extends Controller
         //Validasi input huruf dan spasi
         if (ctype_alpha(str_replace(' ', '', $request->nama)) === false) {
             $errors[] = 'Nama hanya dapat diisi huruf dan spasi saja';
-            return redirect('constants.url.url_pegawai')->withErrors(['msg' => $errors]);
+            return redirect(PegawaiController::URL_PEGAWAI)->withErrors(['msg' => $errors]);
         }
 
         //Validasi input angka
         if (!is_numeric($request->umur)) {
             $errors[] = 'Umur hanya dapat diisi angka saja';
-            return redirect('constants.url.url_pegawai')->withErrors(['msg' => $errors]);
+            return redirect(PegawaiController::URL_PEGAWAI)->withErrors(['msg' => $errors]);
         }
 
         // insert data ke table pegawai
@@ -48,7 +49,7 @@ class PegawaiController extends Controller
             'pegawai_alamat' => $request->alamat
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('constants.url.url_pegawai');
+        return redirect(PegawaiController::URL_PEGAWAI);
     }
 
     // method untuk edit data pegawai
@@ -71,7 +72,7 @@ class PegawaiController extends Controller
             'pegawai_alamat' => $request->alamat
         ]);
         // alihkan halaman ke halaman pegawai
-        return redirect('constants.url.url_pegawai');
+        return redirect(PegawaiController::URL_PEGAWAI);
     }
 
     // method untuk hapus data pegawai
@@ -81,7 +82,7 @@ class PegawaiController extends Controller
         DB::table('pegawai')->where('pegawai_id', $id)->delete();
 
         // alihkan halaman ke halaman pegawai
-        return redirect('constants.url.url_pegawai');
+        return redirect(PegawaiController::URL_PEGAWAI);
     }
 
     public function cari(Request $request)
