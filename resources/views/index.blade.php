@@ -2,7 +2,6 @@
 @section('navigasi','Data Pegawai')
 @section('content')
 
-<h2>www.malasngoding.com</h2>
 <h3>Data Pegawai</h3>
 
 <a href={{ route('tambah') }}> + Tambah Pegawai Baru</a>
