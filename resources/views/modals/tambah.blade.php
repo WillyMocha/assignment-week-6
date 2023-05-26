@@ -5,15 +5,15 @@
       <div class="modal-content">
         <form action="{{ route('store') }}" method="post">@csrf
             <div class="modal-header">
-            <h1 class="modal-title fs-5" id="modalTambahLabel">Tambah Data Pegawai</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <h1 class="modal-title fs-5" id="modalTambahLabel">Tambah Data Pegawai</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3 row">
                     <label for="inputNama" class="col-sm-2 col-form-label">Nama</label>
                     <div class="col-sm-10">
                         <input type="text" class="form-control" id="inputNama" placeholder="Masukkan nama..."
-                            name="nama" required="required">
+                            name="nama" onkeydown="return /[a-z]/i.test(event.key)" required="required">
                     </div>
                 </div>
                 <div class="mb-3 row">

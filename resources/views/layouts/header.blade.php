@@ -8,7 +8,7 @@
 
       <ul class="nav nav-pills">
         <li class="nav-item">
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalTambah">
+            <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#modalTambah">
                 + Tambah Data Pegawai
             </button>
         </li>
